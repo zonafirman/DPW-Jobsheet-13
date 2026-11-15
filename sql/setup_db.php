@@ -1,5 +1,7 @@
 <?php
 // Script eksekusi dan verifikasi skema database Jobsheet 8.3
+// Hanya untuk petugas yang sudah login, supaya tidak bisa dijalankan pengunjung di server publik.
+require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
 
 header('Content-Type: text/plain; charset=utf-8');

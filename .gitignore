@@ -1,2 +1,8 @@
 # Kredensial lokal, jangan di-commit
 .env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+vendor/

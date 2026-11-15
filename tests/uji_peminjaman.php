@@ -1,4 +1,9 @@
 <?php
+// Skrip uji hanya boleh dijalankan dari terminal, bukan dibuka lewat browser.
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit;
+}
 // Jobsheet 12: uji modul peminjaman lewat HTTP (server harus aktif).
 // Jalankan dari folder Jobsheet-12:
 //   php tests/uji_peminjaman.php <username> <password> [base_url]

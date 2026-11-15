@@ -1,4 +1,9 @@
 <?php
+// Skrip uji hanya boleh dijalankan dari terminal, bukan dibuka lewat browser.
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit;
+}
 // Jobsheet 11: menjalankan langkah "Cara menguji" README secara otomatis.
 // Jalankan saat server aktif (php -S localhost:8000), dari folder Jobsheet-12:
 //   php tests/uji_keamanan.php <username> <password> [base_url]

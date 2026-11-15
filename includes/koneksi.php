@@ -2,9 +2,13 @@
 // Jobsheet 13: nilai koneksi diambil dari config.php, tidak lagi ditulis langsung di sini.
 $config = require __DIR__ . '/config.php';
 
+// Supabase mewajibkan koneksi terenkripsi, jadi default-nya sslmode=require.
+// Untuk PostgreSQL lokal tanpa SSL, isi DB_SSLMODE=disable (atau prefer) di .env.
+$sslmode = $config['db_sslmode'];
+
 try {
     $pdo = new PDO(
-        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']}",
+        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};sslmode={$sslmode}",
         $config['db_user'],
         $config['db_pass']
     );
